@@ -1,0 +1,128 @@
+@import url('./App.css');
+
+.box_preta {
+    width: 400px; /* Ajuste a largura para o tamanho desejado */
+    height: 600px; /* Ajuste a altura para o tamanho desejado */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login_logo {
+    width: 100px; /* Ajuste o tamanho do logo conforme necessário */
+    margin-bottom: 20px;
+}
+
+.login_titulo {
+    color: var(--cor-principal);
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.login_subtitulo {
+    color: var(--cor-principal);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.box_branca {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login {
+    width: calc(100% - 20px); /* Ajusta a largura para se ajustar ao container */
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 253, 253, 0.5);
+    background-color: rgba(4, 4, 4, 0.48);
+    color: var(--cor-principal);
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.esqueceu, .criar {
+    color: var(--cor-quartearia);
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+.criar strong {
+    color: var(--cor-principal);
+}
+
+.btn_entrar {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgba(57, 91, 100, 0.8);
+    color: var(--cor-principal);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_entrar:hover {
+    background-color: rgba(57, 91, 100, 1);
+}
+
+.message {
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.message.error {
+  color: #ff4d4d;
+}
+
+.message.success {
+  color: #4dff4d;
+}
+
+
+.cadastro_opcao {
+  margin-top: 10px;
+  text-align: center;
+  color: white; /* Muda a cor do texto para branco */
+}
+
+.btn_cadastro {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.btn_cadastro:hover {
+  background-color: #0056b3;
+}

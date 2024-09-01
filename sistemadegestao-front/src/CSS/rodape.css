@@ -1,0 +1,70 @@
+.footer {
+  background-color: var(--cor-do-rodape);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+border-radius: 20px 20px 0 0;
+}
+
+.footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer-left {
+  flex: 1;
+}
+.footer-names {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: poppins;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--cor-principal);
+}
+
+.footer-center {
+  text-align: center;
+  flex: 2;
+  font-family: poppins;
+  font-weight: bold;
+  color: var(--cor-principal);
+
+}
+
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+
+}
+.footer.a{
+  text-decoration: none;
+  font-style: normal;
+  color: var(--cor-principal);
+}
+
+.footer-icon {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-icon svg {
+  fill: currentColor;
+  width: 24px; /* Ajusta o tamanho do ícone */
+  height: 24px; /* Ajusta o tamanho do ícone */
+  transition: color 0.3s;
+}
+
+.footer-icon:hover {
+  color: #ddd;
+}
+
+.footer-right p {
+  font-size: 10px; /* Ajusta o tamanho da fonte para 10px */
+}
