@@ -31,16 +31,16 @@ public class FuncionarioServico {
             rm.setMensagem("O campo nome é obrigatorio!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if (fm.getTelefone().equals("")) {
-            rm.setMensagem("O comapo telefone é obrigatório!");
+            rm.setMensagem("O campo telefone é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if (fm.getEmail().equals("")) {
-            rm.setMensagem("O comapo email é obrigatório!");
+            rm.setMensagem("O campo email é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if (fm.getEndereco().equals("")) {
-            rm.setMensagem("O comapo endereco é obrigatório!");
+            rm.setMensagem("O campo endereco é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if (fm.getSalario() == 0) {
-            rm.setMensagem("O comapo salario é obrigatório!");
+            rm.setMensagem("O campo salario é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else {
             if (acao.equals("cadastrar")) {
