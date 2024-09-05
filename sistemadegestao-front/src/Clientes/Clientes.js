@@ -1,4 +1,3 @@
-// Login.js
 import { useState, useEffect } from 'react';
 import FormularioClientes from './FormularioClientes';
 import TabelaClientes from './TabelaClientes';
@@ -28,7 +27,6 @@ function Clientes() {
       const aoDigitar = (e) => {
         const { name, value } = e.target;
       
-        // Validate phone format
         if (name === 'telefone' && !/^(\(\d{2}\) \d{5}-\d{4})?$/.test(value)) {
           alert('Formato de telefone inválido. Use o formato (11) 99999-9999');
           return;

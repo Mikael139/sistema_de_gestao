@@ -1,4 +1,3 @@
-// Login.js
 import { useState, useEffect } from 'react';
 import FormularioFornecedores from './FormularioFornecedores';
 import TabelaFornecedores from './TabelaFornecedores';
@@ -6,13 +5,13 @@ import TabelaFornecedores from './TabelaFornecedores';
 function Fornecedores() {
     const controles = {
         codigo: 0,
-        nome:"",
-        data_nascimento: "",
-        data_cadastro:"",
+        tipoServico:"",
+        dataCadastro:"",
         obs:"",
-        endereco: "",
-        telefone: "",
-        genero: ""
+        fornecedorContato: "",
+        nomeFornecedor: "",
+        enderecoFornecedor: "",
+        cnpjFornecedor: ""
       }
     
       const [btnCadastrar, setBtnCadastrar] = useState(true);
@@ -30,7 +29,7 @@ function Fornecedores() {
       }
     
       const cadastrarFornecedores = () => {
-        fetch('http://localhost:8080/cadastrarFornecedores', {
+        fetch('http://localhost:8080/cadastrarFornecedor', {
           method:'post',
           body:JSON.stringify(objControle),
           headers:{
@@ -51,7 +50,7 @@ function Fornecedores() {
       }
     
       const alterarFornecedores = () => {
-        fetch('http://localhost:8080/alterarFornecedores',{
+        fetch('http://localhost:8080/alterarFornecedor',{
           method:'put',
           body:JSON.stringify(objControle),
           headers:{
@@ -77,7 +76,7 @@ function Fornecedores() {
       }
     
       const removerFornecedor = () => {
-        fetch('http://localhost:8080/removerFornecedores/'+objControle.codigo,{
+        fetch('http://localhost:8080/removerFornecedor/'+objControle.codigo,{
           method:'delete',
           headers:{
             'Content-type':'application/json',
