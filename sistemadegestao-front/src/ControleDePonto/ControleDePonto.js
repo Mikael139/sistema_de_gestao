@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CameraModal from './CameraModal';
+import '../CSS/ponto.css';
 
 function ControleDePonto({ onLoginSuccess }) {
   const [id, setId] = useState('');

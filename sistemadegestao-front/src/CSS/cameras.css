@@ -1,0 +1,33 @@
+@import url('./App.css');
+
+.tirar_foto {
+    width: 90vh; /* Aumenta a largura para acomodar duas imagens */
+    height: 40vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: row; /* Mantém as imagens lado a lado */
+    align-items: center;
+    justify-content: space-around; /* Espaço entre as imagens */
+    gap: 24px;
+
+    /* Centraliza horizontalmente */
+    margin-left: -30vh;
+    margin-right: 0vh;
+  }
+  
+  .tirar_foto video,
+  .tirar_foto img {
+    width: 40%; /* Cada imagem ocupa 40% do espaço */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .tirar_foto video {
+    transform: scaleX(-1); /* Espelha o vídeo horizontalmente */
+  }
+
+.btn.btn-primary.foto{
+    margin-bottom: 20px;
+}

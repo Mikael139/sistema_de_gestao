@@ -7,17 +7,17 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-left">
           <ul className="footer-names">
-            <li>Gabriel Gramacho Cantano rm:98166</li>
-            <li>Gabriel de Oliveira Araujo rm:550456</li>
-            <li>Gustavo Teodoro Gabilan rm:550456</li>
-            <li>Kauã Granata Monteiro rm:99472</li>
-            <li>Nilton Mikael Palmeira da Silva rm:552442</li>
+            <li>Gabriel Gramacho Cantano | RM:98166</li>
+            <li>Gabriel de Oliveira Araujo | RM:550456</li>
+            <li>Gustavo Teodoro Gabilan | RM:550456</li>
+            <li>Kauã Granata Monteiro | RM:99472</li>
+            <li>Nilton Mikael Palmeira da Silva | RM:552442</li>
             
           </ul>
         </div>
         <div className="footer-center">
           <p>&copy; {new Date().getFullYear()} GTX. Todos os direitos reservados.</p>
-          <p id='termos'>
+          <p className='termos'>
             <a href="/termos-de-uso">Termos de Uso</a> | <a href="/politica-de-privacidade">Política de Privacidade</a>
           </p>
         </div>

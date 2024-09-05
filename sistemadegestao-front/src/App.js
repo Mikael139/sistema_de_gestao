@@ -28,6 +28,12 @@ function App() {
     setIsAuthenticated(true);
   };
 
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    console.log('Usuário desconectado');
+  };
+  
+
 
 
   return (
@@ -76,6 +82,16 @@ function App() {
                   >
                     Ponto
                   </NavLink>
+
+                  <button
+                    onClick={handleLogout}
+                    className="nav-link"
+                    style={{ marginLeft: '65px' }}
+                    id='botaoSair'
+                  >
+                    Desconectar
+                  </button>
+
                 </nav>
               </div>
             </nav>
@@ -88,6 +104,7 @@ function App() {
                 <Route path="/Fornecedores" element={<Fornecedores />} />
                 <Route path="/" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />
                 <Route path="/ponto" element={<ControleDePonto />} />
+                <Route path="/login" element={<LoginPage />} />
                 <Route path="*" element={<Navigate to="/clientes" />} />
               </Routes>
             </div>
@@ -106,3 +123,4 @@ function App() {
 }
 
 export default App;
+

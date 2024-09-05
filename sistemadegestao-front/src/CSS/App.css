@@ -103,6 +103,19 @@ body {
   cursor: pointer;
 }
 
+#botaoSair{
+  font-size: 1.5vh;
+  text-align: center;
+  color: var(--cor-principal);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+#botaoSair:hover{
+  color: var(--cor-terciaria);
+  cursor: pointer;
+}
+
 .active-link{
   color: var(--cor-terciaria);
   text-decoration: underline;

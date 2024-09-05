@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './../CSS/cameras.css';
 
 function CameraModal() {
   const [videoRef, setVideoRef] = useState(null);
@@ -34,6 +35,8 @@ function CameraModal() {
     if (videoRef && videoRef.videoWidth && videoRef.videoHeight) {
       canvas.width = videoRef.videoWidth;
       canvas.height = videoRef.videoHeight;
+      context.scale(-1, 1); 
+      context.drawImage(videoRef, -canvas.width, 0, canvas.width, canvas.height);
       context.drawImage(videoRef, 0, 0, canvas.width, canvas.height);
       canvas.toBlob((blob) => {
         if (blob) {
@@ -67,13 +70,19 @@ function CameraModal() {
 
   return (
     <div className="camera-modal">
-      <video ref={setVideoRef} autoPlay></video>
-      <button onClick={capturePhoto}>Capturar Foto</button>
-      {photo && (
-        <div>
+      <div className="tirar_foto">
+        {/* Exibe o vídeo da câmera */}
+        <video ref={setVideoRef} autoPlay></video>
+  
+        {/* Exibe a imagem capturada, se houver */}
+        {photo && (
           <img src={URL.createObjectURL(photo)} alt="Capturada" />
-          <button onClick={handleUpload}>Enviar Foto</button>
-        </div>
+        )}
+      </div>
+      
+        <button onClick={capturePhoto} className='btn btn-primary foto'>Capturar Foto</button>
+      {photo && (
+        <button onClick={handleUpload} className='btn btn-primary foto'>Enviar Foto</button>
       )}
     </div>
   );
