@@ -1,9 +1,9 @@
 // Login.js
 import { useState, useEffect } from 'react';
-import FormularioClientes from './FormularioPagamento';
-import TabelaClientes from './TabelaPagamento';
+import FormularioFornecedores from './FormularioFornecedores';
+import TabelaFornecedores from './TabelaFornecedores';
 
-function Clientes() {
+function Fornecedores() {
     const controles = {
         codigo: 0,
         nome:"",
@@ -20,7 +20,7 @@ function Clientes() {
       const [objControle, setObjControle] = useState(controles);
     
       useEffect(() => {
-        fetch("http://localhost:8080/listarclientes")
+        fetch("http://localhost:8080/listarfornecedores")
           .then(retorno => retorno.json())
           .then(retorno_convertido => setControle(retorno_convertido));
       }, []);
@@ -29,8 +29,8 @@ function Clientes() {
         setObjControle({...objControle, [e.target.name]:e.target.value});
       }
     
-      const cadastrarClientes = () => {
-        fetch('http://localhost:8080/cadastrarClientes', {
+      const cadastrarFornecedores = () => {
+        fetch('http://localhost:8080/cadastrarFornecedores', {
           method:'post',
           body:JSON.stringify(objControle),
           headers:{
@@ -44,14 +44,14 @@ function Clientes() {
             alert(retorno_convertido.mensagem)
           } else {
             setControle([...controle, retorno_convertido]);
-            alert('Cliente cadastrado com sucesso!');
-            limparFomularioCliente();
+            alert('Fornecedor cadastrado com sucesso!');
+            limparFomularioFornecedores();
           }
         })
       }
     
-      const alterarClientes = () => {
-        fetch('http://localhost:8080/alterarClientes',{
+      const alterarFornecedores = () => {
+        fetch('http://localhost:8080/alterarFornecedores',{
           method:'put',
           body:JSON.stringify(objControle),
           headers:{
@@ -64,20 +64,20 @@ function Clientes() {
           if(retorno_convertido.mensagem !== undefined){
             alert(retorno_convertido.mensagem);
           }else{
-            alert('Cliente alterado com sucesso!');
+            alert('Fornecedor alterado com sucesso!');
             let vetorTemp = [...controle];
             let indice = vetorTemp.findIndex((p) =>{
               return p.codigo === objControle.codigo;
             });
             vetorTemp[indice] = objControle;
             setControle(vetorTemp);
-            limparFomularioCliente();
+            limparFomularioFornecedores();
           }
         })
       }
     
-      const removerCliente = () => {
-        fetch('http://localhost:8080/removerClientes/'+objControle.codigo,{
+      const removerFornecedor = () => {
+        fetch('http://localhost:8080/removerFornecedores/'+objControle.codigo,{
           method:'delete',
           headers:{
             'Content-type':'application/json',
@@ -93,26 +93,27 @@ function Clientes() {
           });
           vetorTemp.splice(indice, 1);
           setControle(vetorTemp);
-          limparFomularioCliente();
+          limparFomularioFornecedores();
         })
       }
     
-      const limparFomularioCliente = () => {
+      const limparFomularioFornecedores = () => {
         setObjControle(controles);
         setBtnCadastrar(true);
       }
     
-      const selecionarItemCliente = (indice) => {
+      const selecionarItemFornecedor = (indice) => {
         setObjControle(controle[indice]);
         setBtnCadastrar(false);
       }
     
       return (
         <div>
-          <FormularioClientes botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarClientes} obj={objControle} cancelar={limparFomularioCliente} remover={removerCliente} alterar={alterarClientes}/>
-          <TabelaClientes vetor={controle} selecionar={selecionarItemCliente}/>
+          <FormularioFornecedores botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarFornecedores} obj={objControle} cancelar={limparFomularioFornecedores} remover={removerFornecedor} alterar={alterarFornecedores}/>
+          <TabelaFornecedores vetor={controle} selecionar={selecionarItemFornecedor}/>
         </div>
       );
     }
 
-export default Clientes;
+export default Fornecedores;
+

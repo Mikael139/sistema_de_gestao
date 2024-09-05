@@ -1,9 +1,9 @@
 // Login.js
 import { useState, useEffect } from 'react';
-import FormularioClientes from './FormularioPagamento';
-import TabelaClientes from './TabelaPagamento';
+import FormularioFuncionarios from './FormularioFuncionarios';
+import TabelaFuncionarios from './TabelaFuncionarios';
 
-function Clientes() {
+function Funcionarios() {
     const controles = {
         codigo: 0,
         nome:"",
@@ -20,17 +20,25 @@ function Clientes() {
       const [objControle, setObjControle] = useState(controles);
     
       useEffect(() => {
-        fetch("http://localhost:8080/listarclientes")
+        fetch("http://localhost:8080/listarfuncionarios")
           .then(retorno => retorno.json())
           .then(retorno_convertido => setControle(retorno_convertido));
       }, []);
     
       const aoDigitar = (e) => {
-        setObjControle({...objControle, [e.target.name]:e.target.value});
+        const { name, value } = e.target;
+      
+        // Validate phone format
+        if (name === 'telefone' && !/^(\(\d{2}\) \d{5}-\d{4})?$/.test(value)) {
+          alert('Formato de telefone inválido. Use o formato (11) 99999-9999');
+          return;
+        }
+      
+        setObjControle({ ...objControle, [name]: value });
       }
     
-      const cadastrarClientes = () => {
-        fetch('http://localhost:8080/cadastrarClientes', {
+      const cadastrarFuncionarios = () => {
+        fetch('http://localhost:8080/cadastrarFuncionarios', {
           method:'post',
           body:JSON.stringify(objControle),
           headers:{
@@ -44,14 +52,14 @@ function Clientes() {
             alert(retorno_convertido.mensagem)
           } else {
             setControle([...controle, retorno_convertido]);
-            alert('Cliente cadastrado com sucesso!');
-            limparFomularioCliente();
+            alert('Funcionário cadastrado com sucesso!');
+            limparFomularioFuncionarios();
           }
         })
       }
     
-      const alterarClientes = () => {
-        fetch('http://localhost:8080/alterarClientes',{
+      const alterarFuncionarios = () => {
+        fetch('http://localhost:8080/alterarFuncionarios',{
           method:'put',
           body:JSON.stringify(objControle),
           headers:{
@@ -64,20 +72,20 @@ function Clientes() {
           if(retorno_convertido.mensagem !== undefined){
             alert(retorno_convertido.mensagem);
           }else{
-            alert('Cliente alterado com sucesso!');
+            alert('Funcionário alterado com sucesso!');
             let vetorTemp = [...controle];
             let indice = vetorTemp.findIndex((p) =>{
               return p.codigo === objControle.codigo;
             });
             vetorTemp[indice] = objControle;
             setControle(vetorTemp);
-            limparFomularioCliente();
+            limparFomularioFuncionarios();
           }
         })
       }
     
-      const removerCliente = () => {
-        fetch('http://localhost:8080/removerClientes/'+objControle.codigo,{
+      const removerFuncionario = () => {
+        fetch('http://localhost:8080/removerFuncionarios/'+objControle.codigo,{
           method:'delete',
           headers:{
             'Content-type':'application/json',
@@ -93,26 +101,27 @@ function Clientes() {
           });
           vetorTemp.splice(indice, 1);
           setControle(vetorTemp);
-          limparFomularioCliente();
+          limparFomularioFuncionarios();
         })
       }
     
-      const limparFomularioCliente = () => {
+      const limparFomularioFuncionarios = () => {
         setObjControle(controles);
         setBtnCadastrar(true);
       }
     
-      const selecionarItemCliente = (indice) => {
+      const selecionarItemFuncionario = (indice) => {
         setObjControle(controle[indice]);
         setBtnCadastrar(false);
       }
     
       return (
         <div>
-          <FormularioClientes botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarClientes} obj={objControle} cancelar={limparFomularioCliente} remover={removerCliente} alterar={alterarClientes}/>
-          <TabelaClientes vetor={controle} selecionar={selecionarItemCliente}/>
+          <FormularioFuncionarios botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarFuncionarios} obj={objControle} cancelar={limparFomularioFuncionarios} remover={removerFuncionario} alterar={alterarFuncionarios}/>
+          <TabelaFuncionarios vetor={controle} selecionar={selecionarItemFuncionario}/>
         </div>
       );
     }
 
-export default Clientes;
+export default Funcionarios;
+

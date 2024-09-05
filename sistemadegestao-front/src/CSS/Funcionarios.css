@@ -2,7 +2,7 @@
 
 
 
-.menu.clientes {
+.menu.funcionarios {
   display: flex;
   flex-direction: column;
   gap: 2.5vh;
@@ -91,7 +91,7 @@ td {
   height: fit-content;
 }
 
-.table-informacao-clientes {
+.table-informacao-funcionarios {
   font-family: Poppins;
   font-size: 18px;
   font-weight: normal;
@@ -102,7 +102,7 @@ td {
   margin-left: 7%;
 }
 
-.info-clientes {
+.info-funcionarios {
   font-family: Poppins;
   font-size: 14px;
   text-align: center;

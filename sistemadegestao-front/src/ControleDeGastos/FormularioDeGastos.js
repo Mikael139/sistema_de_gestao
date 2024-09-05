@@ -16,7 +16,7 @@ function FormularioDeGastos({botao, eventoTeclado, cadastrar, obj, cancelar, rem
                 <input type="button" value="Cadastrar" onClick={cadastrar} className="btn btn-primary"/>
                 //Caso contrário, mostra os demais botões
                 :
-                <div>
+                <div className="botoes">
                     <input type="button" value="Alterar" onClick={alterar} className="btn btn-warning"/>
                     <input type="button" value="Remover" onClick={remover} className="btn btn-danger"/>
                     <input type="button" value="Cancelar" onClick={cancelar} className="btn btn-secondary"/>

@@ -1,10 +1,10 @@
 @import url(./App.css);
 
-.label.nome.pagamento{
+.label.nome.fornecedores{
 top: -0.9vh;
 }
 
-.table-pagamentos{
+.table-fornecedores{
   width: 160vh;
   height: 55vh;
   background-color:rgba(231, 246, 242, 0.20);
@@ -15,7 +15,7 @@ top: -0.9vh;
   grid-template-columns: repeat(5, 1fr);
 }
 
-.table-informacao-pagamentos{
+.table-informacao-fornecedores{
 
   margin-top: 39px;
   font-size: 2vh;
@@ -27,8 +27,9 @@ top: -0.9vh;
   grid-template-columns: repeat(5, 1fr);
 }
 
-.info-pagamentos{
+.info-fornecedores{
   font-size: 20px;
   text-align: center;
   color: var(--cor-quartearia);
 }
+

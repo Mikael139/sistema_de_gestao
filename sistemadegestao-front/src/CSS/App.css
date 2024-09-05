@@ -41,6 +41,14 @@ body {
   font-family: Poppins;
 }
 
+.body-login {
+  background-image: url('../img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 .navbar {
   width: 100%;
   height: 8vh;
@@ -77,16 +85,17 @@ body {
 }
 
 .nav-link {
-  font-size: 1.8vh;
+  font-size: 1.5vh;
   text-align: center;
   color: var(--cor-principal);
   text-decoration: none;
-  padding: 0 4vh;
+  padding: 0 1vh;
   transform: translate( 50%, 0vh);
   flex-shrink: 0;
   min-width: auto; 
   text-size-adjust: none; 
-
+  margin-left: calc(10% / 10); 
+  margin-right: calc(10% / 10); 
 }
 
 .nav-link:hover{
@@ -112,3 +121,33 @@ body {
 
 }
 
+.botoes{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+  margin: 14vh 0vh 0vh 13vh;
+}
+
+/*Alertas */
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}

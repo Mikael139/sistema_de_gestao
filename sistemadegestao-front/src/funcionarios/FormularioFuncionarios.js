@@ -1,6 +1,6 @@
-function FormularioClientes({botao, eventoTeclado, cadastrar, obj, cancelar, remover, alterar}) {
+function FormularioFuncionarios({botao, eventoTeclado, cadastrar, obj, cancelar, remover, alterar}) {
     return(
-        <form className="menu clientes">
+        <form className="menu funcionarios">
             <div className="form-row">
             <label htmlFor="nome" className="label nome">Nome</label>
                 <input type="text" value={obj.nome} onChange={eventoTeclado} name="nome" placeholder="Nome" className="form-control-first" />
@@ -20,13 +20,13 @@ function FormularioClientes({botao, eventoTeclado, cadastrar, obj, cancelar, rem
             <div className="form-row">
                 <input type="text" value={obj.obs} onChange={eventoTeclado} name="obs" placeholder="Observação" className="form-control-sub" />
                 <label htmlFor="observação" className="label">Observação</label>
-                <input type="text" value={obj.endereco_cliente} onChange={eventoTeclado} name="endereco_cliente" placeholder="Endereço" className="form-control-sub" />
+                <input type="text" value={obj.endereco_funcionario} onChange={eventoTeclado} name="endereco_funcionario" placeholder="Endereço" className="form-control-sub" />
                 <label htmlFor="endereço" className="label dois">Endereço</label>
             </div>
 
             <div className="form-row">
             <label htmlFor="Telefone" className="label">Telefone</label>
-                <input type="text" value={obj.cliente_contato} onChange={eventoTeclado} name="cliente_contato" placeholder="Telefone" className="form-control-sub" />
+                <input type="text" value={obj.funcionario_contato} onChange={eventoTeclado} name="funcionario_contato" placeholder="Telefone" className="form-control-sub" />
                 <label htmlFor="genero" className="label dois">Gênero</label>
                 <select value={obj.genero} onChange={eventoTeclado} name="genero" className="form-control-sub">
                     <option value="M">Masculino</option>
@@ -51,4 +51,4 @@ function FormularioClientes({botao, eventoTeclado, cadastrar, obj, cancelar, rem
     );
 }
 
-export default FormularioClientes;
+export default FormularioFuncionarios;

@@ -1,9 +1,8 @@
-
-function TabelaClientes({vetor, selecionar}) {
+function TabelaFuncionarios({vetor, selecionar}) {
     return(
         <table className="table">
             <thead>
-                <tr class="container-fluid" className="table-informacao-clientes">
+                <tr class="container-fluid" className="table-informacao-funcionarios">
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Data do nascimento</th>
@@ -19,14 +18,14 @@ function TabelaClientes({vetor, selecionar}) {
             <tbody>
                 {
                    vetor.map((obj, indice) => (
-                    <tr key={indice} className="info-clientes">
+                    <tr key={indice} className="info-funcionarios">
                         <td>{indice+1}</td>
                         <td>{obj.nome}</td>
                         <td>{obj.dt_nascimento}</td>
                         <td>{obj.dt_cadastro}</td>
                         <td>{obj.obs}</td>
-                        <td>{obj.endereco_cliente}</td>
-                        <td>{obj.cliente_contato}</td>
+                        <td>{obj.endereco_funcionario}</td>
+                        <td>{obj.funcionario_contato}</td>
                         <td>{obj.genero}</td>
                         <td><button onClick={() => {selecionar(indice)}} className="btn btn-success">Selecionar</button></td>
                     </tr>
@@ -38,4 +37,4 @@ function TabelaClientes({vetor, selecionar}) {
     )
 }
 
-export default TabelaClientes;
+export default TabelaFuncionarios;

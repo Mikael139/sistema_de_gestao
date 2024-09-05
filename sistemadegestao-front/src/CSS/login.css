@@ -1,5 +1,13 @@
 @import url('./App.css');
 
+.login_background {
+  background-image: url('../img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 .box_preta {
     width: 400px; /* Ajuste a largura para o tamanho desejado */
     height: 600px; /* Ajuste a altura para o tamanho desejado */
@@ -126,3 +134,4 @@ form {
 .btn_cadastro:hover {
   background-color: #0056b3;
 }
+
