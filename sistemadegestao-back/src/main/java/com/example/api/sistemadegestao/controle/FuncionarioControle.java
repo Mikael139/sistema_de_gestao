@@ -37,10 +37,9 @@ public class FuncionarioControle {
         return fs.cadastrarAlterar(controleGastos, "cadastrar");
     }
     //Método para listar todos os produtos
-    @GetMapping("/listarfuncionarios")
+    @GetMapping("/listarfuncionario")
     public Iterable<FuncionarioModelo> listar() {
         return fs.listar();
     }
-
 
 }

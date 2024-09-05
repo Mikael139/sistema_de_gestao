@@ -11,7 +11,7 @@ function TabelaDeGastos({vetor, selecionar}) {
                     <th>Selecionar</th>
                 </tr>
             </thead>
-        
+            
                 <tbody>
                 {
                    vetor.map((obj, indice) => (

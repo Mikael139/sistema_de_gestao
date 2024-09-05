@@ -1,4 +1,3 @@
-// Login.js
 import { useState, useEffect } from 'react';
 import FormularioFuncionarios from './FormularioFuncionarios';
 import TabelaFuncionarios from './TabelaFuncionarios';
@@ -6,13 +5,15 @@ import TabelaFuncionarios from './TabelaFuncionarios';
 function Funcionarios() {
     const controles = {
         codigo: 0,
-        nome:"",
-        data_nascimento: "",
-        data_cadastro:"",
-        obs:"",
-        endereco: "",
+        nomeCompleto:"",
+        dt_nascimento: "",
+        dt_cadastro: "",
+        genero: "",
         telefone: "",
-        genero: ""
+        email:"",
+        endereco: "",
+        cargo: "",
+        salario: ""
       }
     
       const [btnCadastrar, setBtnCadastrar] = useState(true);
@@ -20,7 +21,7 @@ function Funcionarios() {
       const [objControle, setObjControle] = useState(controles);
     
       useEffect(() => {
-        fetch("http://localhost:8080/listarfuncionarios")
+        fetch("http://localhost:8080/listarfuncionario")
           .then(retorno => retorno.json())
           .then(retorno_convertido => setControle(retorno_convertido));
       }, []);
@@ -29,16 +30,16 @@ function Funcionarios() {
         const { name, value } = e.target;
       
         // Validate phone format
-        if (name === 'telefone' && !/^(\(\d{2}\) \d{5}-\d{4})?$/.test(value)) {
-          alert('Formato de telefone inválido. Use o formato (11) 99999-9999');
-          return;
-        }
+        // if (name === 'telefone' && !/^(\(\d{2}\) \d{5}-\d{4})?$/.test(value)) {
+        //   alert('Formato de telefone inválido. Use o formato (11) 99999-9999');
+        //   return;
+        // }
       
         setObjControle({ ...objControle, [name]: value });
       }
     
       const cadastrarFuncionarios = () => {
-        fetch('http://localhost:8080/cadastrarFuncionarios', {
+        fetch('http://localhost:8080/cadastrarFuncionario', {
           method:'post',
           body:JSON.stringify(objControle),
           headers:{
@@ -59,7 +60,7 @@ function Funcionarios() {
       }
     
       const alterarFuncionarios = () => {
-        fetch('http://localhost:8080/alterarFuncionarios',{
+        fetch('http://localhost:8080/alterarFuncionario',{
           method:'put',
           body:JSON.stringify(objControle),
           headers:{
@@ -85,7 +86,7 @@ function Funcionarios() {
       }
     
       const removerFuncionario = () => {
-        fetch('http://localhost:8080/removerFuncionarios/'+objControle.codigo,{
+        fetch('http://localhost:8080/removerFuncionario/'+objControle.codigo,{
           method:'delete',
           headers:{
             'Content-type':'application/json',

@@ -1,6 +1,7 @@
-import { BrowserRouter as Router, Route, Routes, NavLink, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import ControleDeGastos from './ControleDeGastos/ControleDeGastos';
 import Clientes from './Clientes/Clientes';
+import ControleDePonto from './ControleDePonto/ControleDePonto';
 import Pagamento from './FolhaDePagamentos/FolhaDePagamentos';
 import Fornecedores from './fornecedores/Fornecedores';
 import LoginPage from './../src/Login/Login';
@@ -12,6 +13,7 @@ import './CSS/gastos.css';
 import './CSS/pagamento.css';
 import './CSS/Funcionarios.css';
 import './CSS/Fornecedores.css';
+import './CSS/controleDePonto.css'
 import LogoGTX from "./img/GTX.png";
 import { useState } from 'react';
 import Footer from './../src/Rodape/Rodape';
@@ -22,6 +24,7 @@ function App() {
 
 
   const handleLoginSuccess = () => {
+    console.log('Login bem-sucedido!');
     setIsAuthenticated(true);
   };
 
@@ -66,6 +69,13 @@ function App() {
                   >
                     Lista de Fornecedores
                   </NavLink>
+                  <NavLink
+                    to="/ponto"
+                    className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
+                    style={{ marginLeft: '65px' }}
+                  >
+                    Ponto
+                  </NavLink>
                 </nav>
               </div>
             </nav>
@@ -77,6 +87,8 @@ function App() {
                 <Route path="/Funcionarios" element={<Funcionarios />} />
                 <Route path="/Fornecedores" element={<Fornecedores />} />
                 <Route path="/" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />
+                <Route path="/ponto" element={<ControleDePonto />} />
+                <Route path="*" element={<Navigate to="/clientes" />} />
               </Routes>
             </div>
           <Footer /> {/* Adicione o rodapé aqui */}
@@ -85,6 +97,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />
             <Route path="/cadastro" element={<RegisterPage />} />
+            <Route path="*" element={<Navigate to="/" />} /> {/* Redireciona para a página de login */}
           </Routes>
         )}
       </div>

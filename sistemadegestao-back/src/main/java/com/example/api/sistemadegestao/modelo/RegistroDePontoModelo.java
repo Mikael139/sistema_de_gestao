@@ -7,24 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
 
 @Entity
-@Table(name = "fornecedor")
+@Table(name = "registro_de_ponto")
 @Getter
 @Setter
-public class FornecedorModelo {
+public class RegistroDePontoModelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long fornecedorId;      
     private Long codigo;
-    private String tipoServico;
-    private Date dataCadastro;
-    private String obs;
-    private String fornecedorContato;
-    private String nomeFornecedor;
-    private String enderecoFornecedor;
-    private String cnpjFornecedor;   
-   
+    private int id;
+    private String senha;
 }
