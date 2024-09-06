@@ -58,12 +58,12 @@ function App() {
                   >
                     Controle de gastos
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     to="/FolhaDePagamentos"
                     className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
                   >
                     Folha de pagamento
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink
                     to="/Funcionarios"
                     className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
@@ -102,7 +102,6 @@ function App() {
               <Routes>
                 <Route path="/clientes" element={<Clientes />} />
                 <Route path="/controle-de-gastos" element={<ControleDeGastos />} />
-                <Route path="/FolhaDePagamentos" element={<Pagamento />} />
                 <Route path="/Funcionarios" element={<Funcionarios />} />
                 <Route path="/Fornecedores" element={<Fornecedores />} />
                 <Route path="/" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />

@@ -28,14 +28,14 @@ function ControleDeGastos() {
   const [btnCadastrar, setBtnCadastrar] = useState(true);
   const [controle, setControle] = useState([]);
   const [objControle, setObjControle] = useState(controles);
-  const [totalGastos, setTotalGastos] = useState(0); // Estado para armazenar o total dos gastos
+  const [totalGastos, setTotalGastos] = useState(0); 
 
   useEffect(() => {
     fetch("http://localhost:8080/listarcontroledegastos")
       .then(retorno => retorno.json())
       .then(retorno_convertido => {
         setControle(retorno_convertido);
-        calcularTotalGastos(retorno_convertido); // Calcular o total ao carregar os dados
+        calcularTotalGastos(retorno_convertido);
       });
   }, []);
 

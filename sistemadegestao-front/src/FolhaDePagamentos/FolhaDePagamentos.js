@@ -1,4 +1,3 @@
-// Login.js
 import { useState, useEffect } from 'react';
 import FormularioClientes from './FormularioPagamento';
 import TabelaClientes from './TabelaPagamento';
