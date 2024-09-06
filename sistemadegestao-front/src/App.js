@@ -17,7 +17,7 @@ import './CSS/controleDePonto.css'
 import LogoGTX from "./img/GTX.png";
 import { useState } from 'react';
 import Footer from './../src/Rodape/Rodape';
-
+import React from 'react';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,8 +33,6 @@ function App() {
     console.log('Usuário desconectado');
   };
   
-
-
 
   return (
     <Router>

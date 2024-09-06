@@ -5,6 +5,7 @@ import './../CSS/cameras.css';
 function CameraModal() {
   const [videoRef, setVideoRef] = useState(null);
   const [photo, setPhoto] = useState(null);
+  const [showModal, setShowModal] = useState(true); // Controla a exibição do modal
 
   useEffect(() => {
     const getMediaStream = async () => {
@@ -18,7 +19,9 @@ function CameraModal() {
       }
     };
 
-    getMediaStream();
+    if (showModal) {
+      getMediaStream();
+    }
 
     return () => {
       if (videoRef && videoRef.srcObject) {
@@ -27,7 +30,7 @@ function CameraModal() {
         tracks.forEach(track => track.stop());
       }
     };
-  }, [videoRef]);
+  }, [videoRef, showModal]);
 
   const capturePhoto = () => {
     const canvas = document.createElement('canvas');
@@ -68,22 +71,32 @@ function CameraModal() {
     }
   };
 
+  const closeModal = () => {
+    setShowModal(false); // Oculta o modal e para a câmera
+    setPhoto(null);      // Limpa a foto capturada, se houver
+  };
+
+  if (!showModal) return null; // Não exibe o modal se `showModal` for false
+
   return (
     <div className="camera-modal">
       <div className="tirar_foto">
         {/* Exibe o vídeo da câmera */}
         <video ref={setVideoRef} autoPlay></video>
-  
+
         {/* Exibe a imagem capturada, se houver */}
         {photo && (
           <img src={URL.createObjectURL(photo)} alt="Capturada" />
         )}
       </div>
-      
-        <button onClick={capturePhoto} className='btn btn-primary foto'>Capturar Foto</button>
+
+      <button onClick={capturePhoto} className='btn btn-primary foto'>Capturar Foto</button>
       {photo && (
         <button onClick={handleUpload} className='btn btn-primary foto'>Enviar Foto</button>
       )}
+      
+      {/* Botão para fechar o modal */}
+      <button onClick={closeModal} className='btn btn-secondary'>Cancelar</button>
     </div>
   );
 }

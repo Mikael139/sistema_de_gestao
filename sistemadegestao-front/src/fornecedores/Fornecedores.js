@@ -1,6 +1,20 @@
 import { useState, useEffect } from 'react';
 import FormularioFornecedores from './FormularioFornecedores';
 import TabelaFornecedores from './TabelaFornecedores';
+import Swal from 'sweetalert2'
+
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-right',
+  iconColor: 'white',
+  customClass: {
+    popup: 'colored-toast',
+  },
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true,
+})
 
 function Fornecedores() {
     const controles = {
@@ -37,6 +51,7 @@ function Fornecedores() {
             'Accept':'application/json'
           }
         })
+        
         .then(retorno => retorno.json())
         .then(retorno_convertido => {
           if(retorno_convertido.mensagem !== undefined) {
@@ -113,6 +128,7 @@ function Fornecedores() {
         </div>
       );
     }
+
 
 export default Fornecedores;
 

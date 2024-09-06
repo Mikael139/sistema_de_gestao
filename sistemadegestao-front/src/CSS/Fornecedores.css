@@ -1,35 +1,41 @@
-@import url(./App.css);
-
-.label.nome.fornecedores{
-top: -0.9vh;
+/* Estilos específicos para a tabela de fornecedores */
+.table-fornecedores {
+  width: 80%; /* Ajuste a largura da tabela para 80% da tela */
+  height: 55vh; /* Altura fixa da tabela */
+  margin: 5vh auto; /* Centraliza a tabela na página */
+  border-collapse: separate; /* Espaço entre linhas */
+  border-spacing: 0 1vh; /* Espaçamento entre as linhas */
+  background-color: rgba(231, 246, 242, 0.20); /* Cor de fundo */
+  border-radius: 29px; /* Bordas arredondadas */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical */
+  max-width: 1200px; /* Largura máxima da tabela */
 }
 
-.table-fornecedores{
-  width: 160vh;
-  height: 55vh;
-  background-color:rgba(231, 246, 242, 0.20);
-  border-radius: 29px;
-  margin-left: 7%;
-  margin-top: 5vh;
-  justify-content: space-between;
-  grid-template-columns: repeat(5, 1fr);
+.table-fornecedores thead {
+  background-color: var(--cor-quartearia); /* Cor do cabeçalho */
+  color: var(--cor-principal); /* Cor do texto */
+  font-weight: bold; /* Negrito para o texto do cabeçalho */
 }
 
-.table-informacao-fornecedores{
-
-  margin-top: 39px;
-  font-size: 2vh;
-  font-weight: normal;
-  text-align: center;
-  margin-bottom: 20%;
-  color:var(--cor-de-fundo);
-  justify-content: space-between;
-  grid-template-columns: repeat(5, 1fr);
+.table-fornecedores th, .table-fornecedores td {
+  padding: 1.5vh 2vh; /* Espaçamento interno das células */
+  border-bottom: 1px solid var(--cor-quartearia); /* Linha de separação entre linhas */
+  text-align: center; /* Alinhamento centralizado do texto */
 }
 
-.info-fornecedores{
-  font-size: 20px;
-  text-align: center;
-  color: var(--cor-quartearia);
+.table-fornecedores tbody tr:hover {
+  background-color: var(--cor-terciaria); /* Cor de fundo ao passar o mouse */
+  color: var(--cor-principal); /* Cor do texto ao passar o mouse */
+  transition: background-color 0.3s ease-in-out; /* Transição suave para a cor de fundo */
 }
 
+.table-fornecedores .btn-success {
+  background-color: var(--cor-terciaria); /* Cor de fundo dos botões */
+  border: none; /* Remove borda do botão */
+  color: var(--cor-principal); /* Cor do texto do botão */
+}
+
+.table-fornecedores .btn-success:hover {
+  background-color: var(--cor-quartearia); /* Cor de fundo dos botões ao passar o mouse */
+  color: var(--cor-principal); /* Cor do texto dos botões ao passar o mouse */
+}

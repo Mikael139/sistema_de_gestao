@@ -1,6 +1,20 @@
 import { useState, useEffect } from 'react';
 import FormularioFuncionarios from './FormularioFuncionarios';
 import TabelaFuncionarios from './TabelaFuncionarios';
+import Swal from 'sweetalert2'
+
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-right',
+  iconColor: 'white',
+  customClass: {
+    popup: 'colored-toast',
+  },
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true,
+})
 
 function Funcionarios() {
     const controles = {
@@ -53,6 +67,7 @@ function Funcionarios() {
             alert(retorno_convertido.mensagem)
           } else {
             setControle([...controle, retorno_convertido]);
+            
             alert('Funcionário cadastrado com sucesso!');
             limparFomularioFuncionarios();
           }

@@ -121,18 +121,53 @@ body {
   text-decoration: underline;
 }
 
-
-.table{
-  width: 160vh;
-  height: 55vh;
-  background-color:rgba(231, 246, 242, 0.20);
+.table-container {
+  width: 80vw;
+  height: 55vh; /* Altura fixa para o contêiner da tabela */
+  overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+  overflow-x: hidden; /* Oculta a rolagem horizontal */
+  margin: 5vh auto; /* Margem automática para centralizar o contêiner */
   border-radius: 29px;
-  margin: 5vh auto;
-  justify-content: space-between;
-  grid-template-columns: repeat(5, 1fr);
+  background-color: rgba(231, 246, 242, 0.20);
+}
 
+.table {
+  width: 100%; /* Ajusta a tabela para ocupar toda a largura do contêiner */
+  table-layout: fixed; /* Define o layout fixo para a tabela */
+  border-collapse: collapse; /* Remove espaçamento entre bordas */
 
 }
+
+.table thead {
+  background-color: var(--cor-quartearia);
+  color: var(--cor-principal);
+  background-color: rgba(231, 246, 242, 0.20);
+  font-weight: bold;
+  border-radius: 29px;
+}
+
+.table th, .table td {
+  padding: 1.5vh 2vh; /* Aumenta o espaçamento interno das células */
+  border-bottom: 1px solid var(--cor-quartearia);
+  text-align: center;
+}
+
+.table th {
+  text-align: center;
+}
+
+
+.table tbody tr:hover {
+  background-color: var(--cor-terciaria);
+  color: var(--cor-principal);
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+.table button:hover {
+  background-color: var(--cor-quartearia);
+}
+
 
 .botoes{
   position: absolute;
