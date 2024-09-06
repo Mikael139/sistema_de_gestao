@@ -28,13 +28,13 @@ public class FornecedorControle {
     }
 
     @PutMapping("/alterarFornecedor")
-    public ResponseEntity<?> alterar(@RequestBody FornecedorModelo controleGastos) {
-        return fs.cadastrarAlterar(controleGastos, "alterar");
+    public ResponseEntity<?> alterar(@RequestBody FornecedorModelo fornecedor) {
+        return fs.cadastrarAlterar(fornecedor, "alterar");
     }
-    //variavel controlegastos faz sentido para a classe fornecedor?
+    
     @PostMapping("/cadastrarFornecedor")
-    public ResponseEntity<?> cadastrar(@RequestBody FornecedorModelo controleGastos) {
-        return fs.cadastrarAlterar(controleGastos, "cadastrar");
+    public ResponseEntity<?> cadastrar(@RequestBody FornecedorModelo fornecedor) {
+        return fs.cadastrarAlterar(fornecedor, "cadastrar");
     }
     //Método para listar todos os produtos
     @GetMapping("/listarfornecedores")
