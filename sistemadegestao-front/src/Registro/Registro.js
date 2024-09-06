@@ -131,7 +131,6 @@ const Registro = () => {
             </span>
           </div>
         </form>
-        <a href="#" target="_blank" rel="noopener noreferrer" className="esqueceu">Esqueceu a senha?</a>
         <br />
         <NavLink to="/" className="criar">
           Já possui uma conta? <strong id="criar">Faça Login</strong>

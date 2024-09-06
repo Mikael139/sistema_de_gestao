@@ -18,6 +18,9 @@ import LogoGTX from "./img/GTX.png";
 import { useState } from 'react';
 import Footer from './../src/Rodape/Rodape';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -87,8 +90,10 @@ function App() {
                     style={{ marginLeft: '65px' }}
                     id='botaoSair'
                   >
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} style={{ marginRight: '8px' }} />
                     Desconectar
                   </button>
+
 
                 </nav>
               </div>

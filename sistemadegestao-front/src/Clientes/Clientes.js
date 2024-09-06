@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import FormularioClientes from './FormularioClientes';
 import TabelaClientes from './TabelaClientes';
 import Swal from 'sweetalert2'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 const Toast = Swal.mixin({
   toast: true,
@@ -144,7 +145,7 @@ function Clientes() {
           a.click();
           a.remove();
           // Caminho para a tela de graficos (Python)
-          window.location.href = "http://localhost:8501/";
+          window.location.href = "https://innovateitdata.streamlit.app";
         });
       }
 
@@ -152,7 +153,10 @@ function Clientes() {
         <div style={styles.container}> 
           <FormularioClientes botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarClientes} obj={objControle} cancelar={limparFomularioCliente} remover={removerCliente} alterar={alterarClientes}/>
           <TabelaClientes vetor={controle} selecionar={selecionarItemCliente}/>
-          <button style={styles.downloadButton} onClick={baixarExcel}>Download Excel</button>
+          <button style={styles.downloadButton} onClick={baixarExcel}>
+            <FontAwesomeIcon icon={faFileExcel} style={{ marginRight: '10px' }} />
+            Download Excel
+          </button>
         </div>
       );
     }
