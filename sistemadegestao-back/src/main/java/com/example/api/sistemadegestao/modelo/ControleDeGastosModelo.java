@@ -18,7 +18,6 @@ public class ControleDeGastosModelo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-    private Long departamento_ID;
     private String dataGasto;
     private String descricao;
     private double valorGasto;

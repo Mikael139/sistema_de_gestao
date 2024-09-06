@@ -140,25 +140,63 @@ function ControleDeGastos() {
     setBtnCadastrar(true);
   };
 
-  const selecionarItemControleDeGastos = (indice) => {
-    setObjControle(controle[indice]);
-    setBtnCadastrar(false);
-  };
 
-  return (
-    <div>
-      <FormularioDeGastos
-        botao={btnCadastrar}
-        eventoTeclado={aoDigitar}
-        cadastrar={cadastrarGastos}
-        obj={objControle}
-        cancelar={limparFomularioControleDeGastos}
-        remover={removerGastos}
-        alterar={alterar}
-      />
-      <TabelaDeGastos vetor={controle} selecionar={selecionarItemControleDeGastos} />
-    </div>
-  );
-}
+    const selecionarItemControleDeGastos = (indice) => {
+      setObjControle(controle[indice]);
+      setBtnCadastrar(false);
+    }
 
+    const baixarExcel = () => {
+      fetch('http://localhost:8080/exportarExcel', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        }
+      })
+      .then(response => response.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'controle_gastos.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        
+        // Caminho para a tela de graficos (Python)
+        window.location.href = "http://localhost:8501/";
+      });
+    }
+
+    return (
+      <div style={styles.container}>
+        <FormularioDeGastos botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrarGastos} obj={objControle} cancelar={limparFomularioControleDeGastos} remover={removerGastos} alterar={alterar}/>
+        <TabelaDeGastos vetor={controle} selecionar={selecionarItemControleDeGastos}/>
+        <button style={styles.downloadButton} onClick={baixarExcel}>Download Excel</button>
+      </div>
+    );
+  }
+  const styles = {
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        textAlign: 'center',
+        padding: '20px'
+    },
+    downloadButton: {
+        backgroundColor: '#87adbd',
+        color: 'white',
+        border: 'none',
+        padding: '12px 24px',
+        fontSize: '18px',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        transition: '#00000',
+        marginTop: '20px',
+        fontWeight: 'bold'
+    }
+};
 export default ControleDeGastos;

@@ -1,6 +1,9 @@
 package com.example.api.sistemadegestao.controle;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,6 +43,11 @@ public class ClienteControle {
     @GetMapping("/listarclientes")
     public Iterable<ClienteModelo> listar() {
         return cs.listar();
+    }
+
+    @GetMapping("/exportarExcelClientes")
+    public ResponseEntity<InputStreamResource> exportarExcel() throws IOException {
+        return cs.exportarExcel();
     }
 
     @GetMapping("/")
