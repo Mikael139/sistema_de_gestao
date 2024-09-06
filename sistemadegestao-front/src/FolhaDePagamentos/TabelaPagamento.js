@@ -3,7 +3,7 @@ function TabelaClientes({ vetor, selecionar }) {
         <div className="table-container">
             <table className="table pagamentos">
                 <thead>
-                    <tr className="table-informacao-pagamentos">
+                    <tr className="table_informacao">
                         <th>#</th>
                         <th>Nome</th>
                         <th>E-Mail</th>
