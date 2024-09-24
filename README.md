@@ -85,7 +85,7 @@
   <li>Navegue até a pasta do backend:
     <pre><code>cd backend</code></pre>
   </li>
-  <li>Configure o MySQL com as credenciais no arquivo <code>application.properties</code> ou <code>application.yml</code>:
+  <li>Configure o MySQL com as credenciais no arquivo <code>application.properties</code>:
     <pre><code>spring.datasource.url=jdbc:mysql://localhost:3306/seu_banco_de_dados
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha</code></pre>
