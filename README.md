@@ -1,6 +1,6 @@
 <h1>GoDigital Code - ERP System</h1>
 
-<p>Este projeto foi desenvolvido como parte do curso da FIAP e é focado na criação de um sistema ERP (Sistema de Gestão Empresarial) utilizando a empresa fictícia <strong>GTX Tecnologia</strong> como caso de estudo. O sistema busca facilitar a gestão de operações e recursos das empresas, oferecendo uma solução eficiente para monitoramento, gestão financeira, controle de estoques, entre outros.</p>
+<p>Este projeto foi desenvolvido como parte do nosso curso (Sistemas de Informação) da nossa instituição de ensino <a href="https://www.fiap.com.br/">FIAP</a> e é focado na criação de um sistema ERP (Sistema de Gestão Empresarial) utilizando a empresa <strong>GTX Tecnologia</strong> como caso de estudo. O sistema busca facilitar a gestão de operações e recursos das empresas, oferecendo uma solução eficiente para monitoramento, gestão financeira, controle dos seus funcionários, entre outros.</p>
 
 <h2>Descrição do Projeto</h2>
 
