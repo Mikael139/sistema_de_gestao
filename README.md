@@ -105,7 +105,7 @@ spring.datasource.password=sua_senha</code></pre>
 
 <h2>Segurança</h2>
 
-<p>Um dos principais diferenciais do projeto é o sistema de segurança robusto utilizando <strong>Spring Security</strong>. Implementamos autenticação e autorização para proteger as rotas e recursos sensíveis do sistema.</p>
+<p>Um dos principais diferenciais do projeto é o sistema de segurança utilizando <strong>Spring Security</strong>. Implementamos autenticação e autorização para proteger as rotas e recursos sensíveis do sistema.</p>
 
 <hr>
 
