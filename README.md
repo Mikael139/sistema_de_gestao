@@ -11,7 +11,7 @@
   <li>Gestão de clientes, fornecedores e funcionários</li>
   <li>Controle de fluxo de caixa e relatórios financeiros</li>
   <li>Monitoramento de inventário e gestão de pedidos</li>
-  <li>Autenticação e segurança robusta com <strong>Spring Security</strong></li>
+  <li>Autenticação e segurança</li>
   <li>API para integração de dados e operações</li>
 </ul>
 
