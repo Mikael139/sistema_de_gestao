@@ -180,6 +180,12 @@ body {
   margin: 14vh 0vh 0vh 13vh;
 }
 
+.botoes.grande{
+  margin: 0vh 0vh 0vh 0vh;
+  flex-direction: column;
+  transform: translate( 50%, -100%);
+}
+
 /*Alertas */
 .colored-toast.swal2-icon-error {
   background-color: #f27474 !important;

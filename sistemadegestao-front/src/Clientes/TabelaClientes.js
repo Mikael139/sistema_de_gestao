@@ -1,4 +1,11 @@
+import React from 'react';
 function TabelaClientes({ vetor, selecionar }) {
+
+    const formatarData = (data) => {
+        const novaData = new Date(data);
+        return novaData.toLocaleDateString('pt-BR');
+    };
+
     return (
         <div className="table-container">
             <table className="table">
@@ -22,8 +29,8 @@ function TabelaClientes({ vetor, selecionar }) {
                                 <tr key={indice} className="info-clientes">
                                     <td>{indice + 1}</td>
                                     <td>{obj.nome}</td>
-                                    <td>{obj.dt_nascimento}</td>
-                                    <td>{obj.dt_cadastro}</td>
+                                    <td>{formatarData(obj.dt_nascimento)}</td>
+                                    <td>{formatarData(obj.dt_cadastro)}</td>
                                     <td>{obj.obs}</td>
                                     <td>{obj.endereco_cliente}</td>
                                     <td>{obj.cliente_contato}</td>

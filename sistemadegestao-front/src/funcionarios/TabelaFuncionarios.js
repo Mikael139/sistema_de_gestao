@@ -15,8 +15,18 @@ function TabelaFuncionarios({ vetor, selecionar }) {
     return salario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 
+  const formatarEmail = (email) => {
+    const partes = email.split('@');
+    return (
+      <>
+        {partes[0]}<br />{/* Adiciona uma quebra de linha antes do @ */}
+        @{partes[1]}
+      </>
+    );
+  };
+
   return (
-    <div className="table-container">
+    <div className="table-container funcionarios">
       <table className="table">
         <thead>
           <tr className="table_informacao">
@@ -35,12 +45,12 @@ function TabelaFuncionarios({ vetor, selecionar }) {
         </thead>
         <tbody>
           {vetor.map((obj, indice) => (
-            <tr key={indice} className="info-gastos">
+            <tr key={indice} className="info-gastos funcionarios">
               <td>{indice + 1}</td>
               <td>{obj.nomeCompleto}</td>
               <td>{formatarData(obj.dt_nascimento)}</td>
               <td>{formatarData(obj.dt_cadastro)}</td>
-              <td>{obj.email}</td>
+              <td>{formatarEmail(obj.email)}</td> {/* Usa a função para formatar o e-mail */}
               <td>{formatarTelefone(obj.telefone)}</td>
               <td>{obj.endereco}</td>
               <td>{obj.cargo}</td>

@@ -91,15 +91,8 @@ td {
   height: fit-content;
 }
 
-.table-informacao-funcionarios {
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: normal;
-  text-align: center;
-  color: --cor-de-fundo;
-  border-bottom: --cor-quartearia;
-  border-style: solid;
-  margin-left: 7%;
+.info-gastos.funcionarios{
+  font-size: 1.4vh;
 }
 
 .info-funcionarios {

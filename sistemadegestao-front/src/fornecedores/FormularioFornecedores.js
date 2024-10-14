@@ -50,7 +50,7 @@ function FormularioFornecedores({botao, eventoTeclado, cadastrar, obj, cancelar,
                 {botao ? (
                     <input type="button" value="Cadastrar" onClick={cadastrar} className="btn btn-primary"/>
                 ) : (
-                    <div className="botoes">
+                    <div className="botoes grande">
                         <input type="button" value="Alterar" onClick={alterar} className="btn btn-warning" />
                         <input type="button" value="Remover" onClick={remover} className="btn btn-danger" />
                         <input type="button" value="Cancelar" onClick={cancelar} className="btn btn-secondary" />
