@@ -177,8 +177,6 @@ function ControleDeGastos() {
       a.click();
       a.remove();
       
-      // Caminho para a tela de gráficos (Python)
-      window.location.href = "https://innovateitdata.streamlit.app";
     });
   };
 

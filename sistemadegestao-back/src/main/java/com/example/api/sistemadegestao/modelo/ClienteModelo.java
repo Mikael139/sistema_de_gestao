@@ -21,9 +21,9 @@ public class ClienteModelo {
     private Long codigo;
     private int pessoa_id;   
     private String nome;
-    private Date dt_nascimento;    
-    private Date dt_cadastro;      
-    private char genero;           
+    private String dt_nascimento;    
+    private String dt_cadastro;      
+    private String genero;           
     private String obs;             
     private String cliente_contato;  
     private String endereco_cliente; 

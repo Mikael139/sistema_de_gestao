@@ -5,6 +5,15 @@ import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
+// Função para formatar a data
+const formatarData = (data) => {
+  const dataObj = new Date(data);
+  const dia = String(dataObj.getUTCDate()).padStart(2, '0');
+  const mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+  const ano = dataObj.getUTCFullYear();
+  return `${dia}/${mes}/${ano}`;
+};
+
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-right',
@@ -21,11 +30,11 @@ function Clientes() {
   const controles = {
     codigo: 0,
     nome: "",
-    data_nascimento: "",
-    data_cadastro: "",
+    dt_nascimento: "",
+    dt_cadastro: "",
     obs: "",
-    endereco: "",
-    telefone: "",
+    endereco_cliente: "",
+    cliente_contato: "",
     genero: ""
   };
 
@@ -33,14 +42,58 @@ function Clientes() {
   const [controle, setControle] = useState([]);
   const [objControle, setObjControle] = useState(controles);
 
+  // Função para baixar o Excel
+  const baixarExcel = () => {
+    fetch('http://localhost:8080/exportarExcelClientes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao baixar o arquivo');
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'clientes.xlsx'; // Nome do arquivo
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    })
+    .catch(error => {
+      console.error(error);
+      Toast.fire({
+        icon: 'error',
+        title: 'Erro ao baixar o Excel',
+      });
+    });
+  };
+
+  // useEffect para buscar os dados e formatar as datas
   useEffect(() => {
     fetch("http://localhost:8080/listarclientes")
       .then(retorno => retorno.json())
-      .then(retorno_convertido => setControle(retorno_convertido));
+      .then(retorno_convertido => {
+        // Aplica a formatação de data antes de atualizar o estado
+        const clientesFormatados = retorno_convertido.map(cliente => ({
+          ...cliente,
+          dt_nascimento: formatarData(cliente.dt_nascimento),
+          dt_cadastro: formatarData(cliente.dt_cadastro)
+        }));
+        setControle(clientesFormatados);
+      });
   }, []);
 
+  // Resto das funções permanece igual
   const aoDigitar = (e) => {
     const { name, value } = e.target;
+
+    setObjControle({ ...objControle, [name]: value });
 
     if (name === 'telefone' && !/^(\(\d{2}\) \d{5}-\d{4})?$/.test(value)) {
       Toast.fire({
@@ -55,13 +108,18 @@ function Clientes() {
   };
 
   const cadastrarClientes = () => {
+    const clienteData = {
+      ...objControle,
+      dt_nascimento: objControle.dt_nascimento, // Certifique-se de que a data já está no formato correto
+    };
+
     fetch('http://localhost:8080/cadastrarClientes', {
-      method: 'post',
-      body: JSON.stringify(objControle),
+      method: 'POST',
+      body: JSON.stringify(clienteData),
       headers: {
         'Content-type': 'application/json',
-        'Accept': 'application/json'
-      }
+        'Accept': 'application/json',
+      },
     })
     .then(retorno => retorno.json())
     .then(retorno_convertido => {
@@ -144,26 +202,6 @@ function Clientes() {
   const selecionarItemCliente = (indice) => {
     setObjControle(controle[indice]);
     setBtnCadastrar(false);
-  };
-
-  const baixarExcel = () => {
-    fetch('http://localhost:8080/exportarExcelClientes', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      }
-    })
-    .then(response => response.blob())
-    .then(blob => {
-      const url = window.URL.createObjectURL(new Blob([blob]));
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'clientes.xlsx';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.location.href = "https://innovateitdata.streamlit.app";
-    });
   };
 
   return (

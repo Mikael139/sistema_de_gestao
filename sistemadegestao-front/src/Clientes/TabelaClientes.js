@@ -2,8 +2,22 @@ import React from 'react';
 function TabelaClientes({ vetor, selecionar }) {
 
     const formatarData = (data) => {
-        const novaData = new Date(data);
-        return novaData.toLocaleDateString('pt-BR');
+        if (!data) return ''; // Verifica se a data está presente
+    
+        const partesData = data.split('-'); // Divide a string "YYYY-MM-DD" em um array
+        const ano = partesData[0];
+        const mes = partesData[1];
+        const dia = partesData[2];
+    
+        // Retorna a data no formato "DD/MM/YYYY"
+        return `${dia}/${mes}/${ano}`;
+    };
+
+    const formatarTelefone = (telefone) => {
+        // Remove qualquer caractere que não seja número
+        const telefoneLimpo = telefone.replace(/\D/g, '');
+        // Aplica a máscara (xx) xxxxx-xxxx
+        return telefoneLimpo.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     };
 
     return (
@@ -33,7 +47,7 @@ function TabelaClientes({ vetor, selecionar }) {
                                     <td>{formatarData(obj.dt_cadastro)}</td>
                                     <td>{obj.obs}</td>
                                     <td>{obj.endereco_cliente}</td>
-                                    <td>{obj.cliente_contato}</td>
+                                    <td>{formatarTelefone(obj.cliente_contato)}</td>
                                     <td>{obj.genero}</td>
                                     <td>
                                         <button onClick={() => { selecionar(indice) }} className="btn btn-success">
