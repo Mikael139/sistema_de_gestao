@@ -76,7 +76,10 @@ const Registro = () => {
         username: email,
         password: password,
       });
-      alert(response.data.mensagem);
+      await Toast.fire({
+        icon: 'success',
+        title: (response.data.mensagem),
+      })
       navigate('/');
     } catch (error) {
       await Toast.fire({

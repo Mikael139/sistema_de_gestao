@@ -1,16 +1,10 @@
 import React from 'react';
 function TabelaClientes({ vetor, selecionar }) {
 
-    const formatarData = (data) => {
-        if (!data) return ''; // Verifica se a data está presente
+    const formatarData = (data) => {    
+        const [ano, mes, dia] = data.split('-'); // Divide a data "YYYY-MM-DD" em partes
     
-        const partesData = data.split('-'); // Divide a string "YYYY-MM-DD" em um array
-        const ano = partesData[0];
-        const mes = partesData[1];
-        const dia = partesData[2];
-    
-        // Retorna a data no formato "DD/MM/YYYY"
-        return `${dia}/${mes}/${ano}`;
+        return `${dia}/${mes}/${ano}`; // Retorna a data no formato "DD/MM/YYYY"
     };
 
     const formatarTelefone = (telefone) => {
@@ -43,8 +37,8 @@ function TabelaClientes({ vetor, selecionar }) {
                                 <tr key={indice} className="info-clientes">
                                     <td>{indice + 1}</td>
                                     <td>{obj.nome}</td>
-                                    <td>{formatarData(obj.dt_nascimento)}</td>
-                                    <td>{formatarData(obj.dt_cadastro)}</td>
+                                    <td>{obj.dt_nascimento}</td>
+                                    <td>{obj.dt_cadastro}</td>
                                     <td>{obj.obs}</td>
                                     <td>{obj.endereco_cliente}</td>
                                     <td>{formatarTelefone(obj.cliente_contato)}</td>

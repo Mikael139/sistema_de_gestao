@@ -7,12 +7,21 @@ import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 // Função para formatar a data
 const formatarData = (data) => {
-  const dataObj = new Date(data);
-  const dia = String(dataObj.getUTCDate()).padStart(2, '0');
-  const mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0'); // Janeiro é 0!
-  const ano = dataObj.getUTCFullYear();
+  if (!data || typeof data !== 'string' || !data.includes('-')) {
+      return '--/--/----'; // Exibe uma data padrão em caso de erro
+  }
+
+  const partesData = data.split('-'); // Divide a string "YYYY-MM-DD" em um array
+  if (partesData.length !== 3) {
+      return '--/--/----'; // Retorna a data padrão caso o array esteja incompleto
+  }
+
+  const [ano, mes, dia] = partesData; // Desestrutura as partes
+
+  // Retorna a data no formato "DD/MM/YYYY"
   return `${dia}/${mes}/${ano}`;
 };
+
 
 const Toast = Swal.mixin({
   toast: true,
